@@ -1,0 +1,44 @@
+<c-row>
+  <c-col xs>
+    <c-card class="mb-4">
+      <c-card-header>Today List</c-card-header>
+      <c-card-body>
+        <table
+          [hover]="true"
+          align="middle"
+          cTable
+          
+        >
+          <thead cTableColor="dark">
+            <tr>
+              <th>Item Name</th>
+              <th>Protein(g)</th>
+              <th>Fat(g)</th>
+              <th>Carbohydrates(g)</th>
+              <th class="text-center"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let food of foodLists; index as i">
+              <td>{{ food.name }}</td>
+              <td>{{ food.protein }}</td>
+              <td>{{ food.fat }}</td>
+              <td>{{ food.carbohydrates }}</td>
+              <td class="text-center">
+                <button cButton color="primary" variant="outline" (click)="removeTodayList(food)">Remove Today List</button>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td>Sum</td>
+              <td>{{getSumTodayList().proteinTotal}}</td>
+              <td>{{getSumTodayList().fatTotal}}</td>
+              <td>{{getSumTodayList().carboTotal}}</td>
+              <td></td>
+            </tr>
+        </table>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>
